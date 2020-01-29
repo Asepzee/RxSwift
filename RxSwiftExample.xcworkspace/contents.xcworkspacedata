@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:RxSwift.xcodeproj">
+      location = "group:/Users/asepzee/Documents/Testing/RxSwift/RxSwiftExample.xcodeproj">
    </FileRef>
 </Workspace>
