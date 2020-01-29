@@ -4,4 +4,10 @@
    <FileRef
       location = "group:/Users/asepzee/Documents/Testing/RxSwift/RxSwiftExample.xcodeproj">
    </FileRef>
+   <FileRef
+      location = "group:RxSwiftExample.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Pods/Pods.xcodeproj">
+   </FileRef>
 </Workspace>
