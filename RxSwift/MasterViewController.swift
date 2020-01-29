@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import RxSwift
 
 class MasterViewController: UIViewController {
     @IBOutlet weak var titleLabel: UILabel!
     
+    let disposeBag = DisposeBag()
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -18,17 +20,20 @@ class MasterViewController: UIViewController {
     
     @IBAction func selectCharacter(_ sender: UIBarButtonItem) {
         let detailVC = storyboard?.instantiateViewController(identifier: "DetailViewController") as! DetailViewController
-        detailVC.delegate = self
+//        detailVC.delegate = self
+        detailVC.selectedCharacter
+            .subscribe (onNext: { [weak self] character in
+                self?.titleLabel.text = "\(character)"
+            }).disposed(by: disposeBag)
         navigationController?.pushViewController(detailVC, animated: true)
     }
     
+    
 }
 
-extension MasterViewController: CharacterDelegate{
-    func didSelectCharacter(_ name: String) {
-        titleLabel.text = name
-    }
-    
-    
-}
+//extension MasterViewController: CharacterDelegate{
+//    func didSelectCharacter(_ name: String) {
+//        titleLabel.text = name
+//    }
+//}
 
